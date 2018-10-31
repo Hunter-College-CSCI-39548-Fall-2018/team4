@@ -1,0 +1,51 @@
+{
+ 
+    "development": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "metro",
+ 
+        "host": "",
+ 
+        "dialect": "sqlite",
+
+        "storage": "K://myacademic/team4/database-backend/metro" 
+ 
+    },
+ 
+    "test": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
+        "host": "",
+ 
+        "dialect": "sqlite",
+
+        "storage": "K://myacademic/team4/database-backend/metro" 
+ 
+    },
+ 
+    "production": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
+        "host": "127.0.0.1",
+ 
+        "dialect": "sqlite",
+
+        "storage": "K://myacademic/team4/database-backend/metro" 
+ 
+    }
+ 
+}

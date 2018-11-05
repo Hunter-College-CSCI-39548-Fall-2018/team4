@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component'
+import {RegisterComponent } from './register/register.component'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
@@ -16,7 +17,12 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
+
  ]
 
 
@@ -24,7 +30,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     [RouterModule.forRoot(routes)],

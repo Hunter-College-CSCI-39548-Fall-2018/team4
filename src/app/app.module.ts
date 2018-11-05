@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component'
 import {RegisterComponent } from './register/register.component'
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
     [RouterModule.forRoot(routes)],
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent]

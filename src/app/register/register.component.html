@@ -1,42 +1,57 @@
-<div class="row">
-  <div class="col s8 offset-s2">
-    <div class="card">
-      <div class="sm-jumbotron center-align">
-        <h2>MetroTrack</h2>
-      </div>
-      <form class="col s12 white" #userRegistrationForm="ngForm">
-        <div class="row">
-          <div class="input-field col s6">
-            <input class="validate" type="text" name="Username" #Username="ngModel" [(ngModel)]="user.Username" required>
-            <label data-error="Required Input!">Username</label>
-          </div>
-          <div class="input-field col s6">
-            <input class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required minlength="3">
-            <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Password</label>
-          </div>
-          <div class="input-field col s6">
-            <input class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email" required [pattern]="emailPattern">
-            <label data-error="Invalid Email!">Email</label>
-          </div>
-          <div class="input-field col s6">
-            <input type="text" name="Firstname" #Firstname="ngModel" [(ngModel)]="user.Firstname">
-            <label>First Name</label>
-          </div>
-          <div class="input-field col s6">
-            <input type="text" name="Lastname" #Lastname="ngModel" [(ngModel)]="user.Lastname">
-            <label>Last Name</label>
-          </div>
-          <div class="input-field col s6">
-            <input type="text" name="Phonenumber" #Phonenumber="ngModel" [(ngModel)]="user.Phonenumber">
-            <label>Phone number</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Register</button>
-          </div>
-        </div>
-      </form>
+<section class="login-block">
+<div class="container">
+	<div class="row">
+
+
+		<div class="col-md-8 banner-sec">
+
     </div>
+		<div class="col-md-4 login-sec">
+		    <h2 class="text-center">Register Now</h2>
+	<form>
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Full name" type="text">
+    </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Email address" type="email">
+    </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		</div>
+		<select class="custom-select" style="max-width: 120px;">
+		    <option selected="">+347</option>
+		    <option value="1">+917</option>
+		    <option value="2">+646</option>
+		    <option value="3">+929</option>
+		</select>
+    	<input name="" class="form-control" placeholder="Phone number" type="text">
+    </div>
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Create password" type="password">
+    </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Repeat password" type="password">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+    </div>
+    <p class="text-center">Have an account? <a href="/login/">Log In</a> </p>
+</form>
+	   </div>
   </div>
 </div>
+</section>

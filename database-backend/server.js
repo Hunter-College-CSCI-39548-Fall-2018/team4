@@ -32,6 +32,8 @@ app.listen(5000, function(err) {
  
 });
 
+var authRoute = require('K://myacademic/team4/database-backend/routes/auth.js') //CHANGE THIS dir
+
 var models = require("K://myacademic/team4/database-backend/models"); //CHANGE THIS dir
 
 

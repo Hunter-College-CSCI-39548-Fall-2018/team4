@@ -1,0 +1,43 @@
+.banner-sec{
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    background-size:cover;
+    width:100%;
+    position:absolute;
+    height:100%;
+}
+.symbol-add{
+    color: black;
+    size:80px;
+}
+.symbol-profile{
+    color: black;
+    size:80px;
+}
+   
+   
+   .banner-text{
+    width:100%;
+    position:relative;
+    bottom:300px;
+   }
+   
+   .banner-text h2{
+    color:#fff;
+    font-weight:600;
+   }
+   
+   .banner-text h2:after{
+    content:" ";
+    width:100%;
+    height:5px;
+    background:#FFF;
+    display:block;
+    margin-top:20px;
+    border-radius:3px;
+   }
+   
+   .banner-text p{
+    color:#FFF;
+   }
+
+   

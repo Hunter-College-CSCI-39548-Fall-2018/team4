@@ -32,7 +32,7 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
     RegisterComponent
   ],
   imports: [

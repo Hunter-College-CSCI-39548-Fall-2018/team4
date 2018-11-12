@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component'
+import {RegisterComponent } from './register/register.component'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './home/navbar/navbar.component';
 
@@ -17,7 +18,12 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
+
  ]
 
 
@@ -27,6 +33,7 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     NavbarComponent
+    RegisterComponent
   ],
   imports: [
     [RouterModule.forRoot(routes)],

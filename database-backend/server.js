@@ -32,12 +32,12 @@ app.listen(5000, function(err) {
  
 });
 
-var authRoute = require('K://myacademic/team4/database-backend/routes/auth.js') //CHANGE THIS dir
+var authRoute = require('../database-backend/routes/auth.js') (app,passport);
 
-var models = require("K://myacademic/team4/database-backend/models"); //CHANGE THIS dir
+var models = require("../database-backend/models"); 
 
 
-require('K://myacademic/team4/database-backend/config/passport/passport.js')(passport, models.user);
+require('../database-backend/config/passport/passport.js')(passport, models.user);
 
 models.sequelize.sync().then(function() {
  

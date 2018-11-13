@@ -12,7 +12,7 @@
  
         "dialect": "sqlite",
 
-        "storage": "K://myacademic/team4/database-backend/metro" 
+        "storage": "../database-backend/metro" 
  
     },
  

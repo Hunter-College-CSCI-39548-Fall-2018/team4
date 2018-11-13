@@ -10,7 +10,7 @@ const httpOptions = {
 };
  
 @Injectable()
-export class itemService {
+export class metrocardService {
  
   constructor(private http:HttpClient) {}
 

@@ -18,15 +18,19 @@ export class userService {
 
     // Uses http.get() to load data from a single API endpoint
     getUsers() {
-        return this.http.get('http://localhost:3000/getUsers', httpOptions).pipe(map((res: any) => {
+        return this.http.get('http://localhost:5000/getUsers', httpOptions).pipe(map((res: any) => {
         }))
     }
     createUser(user: any) {
-        return this.http.post('http://localhost:3000/createUser', { params: user }, httpOptions).pipe(map((res: any) => {
+        return this.http.post('http://localhost:5000/createUser', { params: user }, httpOptions).pipe(map((res: any) => {
         }))
     }
     updateUserPreferences(user: any) {
-        return this.http.put('http://localhost:3000/updateUser', { params: user }, httpOptions).pipe(map((res: any) => {
+        return this.http.put('http://localhost:5000/updateUser', { params: user }, httpOptions).pipe(map((res: any) => {
+        }))
+    }
+    authenticateUser(user: any) {
+        return this.http.post('http://localhost:5000/signin', { params: user }, httpOptions).pipe(map((res: any) => {
         }))
     }
 }

@@ -22,7 +22,12 @@ export class userService {
         }))
     }
     createUser(user: any) {
-        return this.http.post('http://localhost:5000/signup', { params: user }, httpOptions).pipe(map((res: any) => {
+        console.log(user + ' userservice data')
+        return this.http.post('http://localhost:5000/signup', user, httpOptions).pipe(map((res: any) => {
+        }))
+    }
+    updateUserPreferences(user: any) {
+        return this.http.put('http://localhost:5000/updateUser', { params: user }, httpOptions).pipe(map((res: any) => {
         }))
     }
     // updateUserPreferences(user: any) {

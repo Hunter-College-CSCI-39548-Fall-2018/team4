@@ -2,7 +2,7 @@ module.exports = function(sequelize, Sequelize) {
  
     var User = sequelize.define('Users', {
  
-        userID: { autoIncrement: true, primaryKey: true, type: Sequelize.INTEGER},
+        id: { autoIncrement: true, primaryKey: true, type: Sequelize.INTEGER},
         firstname: { type: Sequelize.STRING,notEmpty: true},
 		lastname: { type: Sequelize.STRING,notEmpty: true},
 		username: {type:Sequelize.TEXT},
@@ -18,8 +18,19 @@ module.exports = function(sequelize, Sequelize) {
  
     });
 
-    
+    var Metrocard = sequelize.define('Metrocard', {
+
+        metrocardID: {autoIncrement: true, primaryKey: true, type: Sequelize.INTEGER},
+        metrocardType: {type: Sequelize.TEXT, notEmpty: true},
+        dateOfPurchase: {type: Sequelize.DATEONLY, notEmpty: true},
+        totalAmount: {type: Sequelize.DOUBLE, allowNull: true},
+        expiration: {type: Sequelize.DATEONLY, allowNull: true}
+
+
+    });
+
+    User.hasMany(Metrocard, {as: 'metrocardID'});
  
-    return User;
+    return User, Metrocard;
  
 }

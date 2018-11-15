@@ -31,6 +31,7 @@ const routes: Routes = [
 
 
 @NgModule({
+  providers: [userService],
   declarations: [
     AppComponent,
     HomeComponent,
@@ -43,8 +44,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgbModule,
-    NgForm
+    NgbModule
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent]

@@ -17,18 +17,18 @@ export class metrocardService {
     // Uses http.get() to load data from a single API endpoint
   getMetrocards(id: any) {
         console.log(JSON.stringify(id) + ' id')
-        return this.http.get('http://localhost:3000/getMetrocards/'+ id, httpOptions);
+        return this.http.get('http://localhost:5000/getMetrocards/'+ id, httpOptions);
   }
   addMetrocard(metrocard:any) {
-      return this.http.post('http://localhost:3000/addMetrocard',metrocard, httpOptions).pipe(map((res: any) => {
+      return this.http.post('http://localhost:5000/addMetrocard',metrocard, httpOptions).pipe(map((res: any) => {
         }))
     }
   removeMetrocard(id:any) {
-        return this.http.delete('http://localhost:3000/removeMetrocard/' + id, httpOptions).pipe(map((res: any) => {
+        return this.http.delete('http://localhost:5000/removeMetrocard/' + id, httpOptions).pipe(map((res: any) => {
           }))
       }
   updateMetrocard(id:any) {
-        return this.http.delete('http://localhost:3000/updateMetrocard/' + id, httpOptions).pipe(map((res: any) => {
+        return this.http.delete('http://localhost:5000/updateMetrocard/' + id, httpOptions).pipe(map((res: any) => {
           }))
       }
    }

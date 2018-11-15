@@ -1,67 +1,76 @@
-.banner-sec{
-    background:url(https://farm5.staticflickr.com/4049/4444688472_364ae375f3_b.jpg
-   )
+section{
+    background: #DE6262;
+    background: linear-gradient(to bottom, #edb946, #0075d6);
+    height:100vH;
+    padding: 60px 0;
 }
-   
-   .container{
-    background:#fff;
-    border-radius: 10px;
-    box-shadow:15px 20px 0px rgba(0,0,0,0.1);
-   }
-   
-   .login-sec{
-    padding: 50px 30px;
-    position:relative;
-   }
-   
-   .login-sec .copy-text{
-    position:absolute;
-    width:80%;
-    bottom:20px;
-    font-size:13px;
-    text-align:center;
-   }
-   
-   
-   .login-sec h2{
-    margin-bottom:30px;
-    font-weight:800;
-    font-size:50px;
-    color: #edb946;
-   }
-   
-   
-   
-   .btn-login{
-    background: #0075d6;
-    color:#fff;
-    font-weight:600;
-   }
-   
-   .banner-text{
-    width:70%;
-    position:absolute;
-    bottom:40px;
-    padding-right:100px;
-   }
-   
-   .banner-text h2{
-    color:#fff;
-    font-weight:600;
-   }
-   
-   .banner-text h2:after{
-    content:" ";
-    width:100px;
-    height:5px;
-    background:#FFF;
-    display:block;
-    margin-top:20px;
-    border-radius:3px;
-   }
-   
-   .banner-text p{
-    color:#FFF;
-   }
 
-   
+.banner-sec{
+  background:url(https://farm5.staticflickr.com/4049/4444688472_364ae375f3_b.jpg)
+  no-repeat left bottom;
+  background-size:cover;
+  min-height:500px;
+  border-radius: 10px 0px 0px 10px;
+  padding:0;
+}
+
+.container{
+  background:#fff;
+  border-radius: 10px;
+  box-shadow:15px 20px 0px rgba(0,0,0,0.1);
+}
+
+.login-sec{
+  padding: 50px 30px;
+  position:relative;
+}
+
+.login-sec .copy-text{
+  position:absolute;
+  width:80%;
+  bottom:20px;
+  font-size:13px;
+  text-align:center;
+}
+
+
+.login-sec h2{
+  margin-bottom:30px;
+  font-weight:800;
+  font-size:50px;
+  color: #edb946;
+}
+
+
+
+.btn-login{
+  background: #0075d6;
+  color:#fff;
+  font-weight:600
+}
+
+.banner-text{
+  width:70%;
+  position:absolute;
+  bottom:40px;
+  padding-right:100px;
+}
+
+.banner-text h2{
+  color:#fff;
+  font-weight:600;
+}
+
+.banner-text h2:after{
+  content:" ";
+  width:100px;
+  height:5px;
+  background:#FFF;
+  display:block;
+  margin-top:20px;
+  border-radius:3px;
+}
+
+.banner-text p{
+  color:#FFF;
+}

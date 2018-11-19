@@ -10,6 +10,14 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("active");
+    alert(1);
+});
+
   }
+
 
 }

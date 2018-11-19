@@ -1,0 +1,51 @@
+{
+ 
+    "development": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "metro",
+ 
+        "host": "",
+ 
+        "dialect": "sqlite",
+
+        "storage": "../db-server/metro" 
+ 
+    },
+ 
+    "test": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
+        "host": "",
+ 
+        "dialect": "sqlite",
+
+        "storage": "../db-server/metro" 
+ 
+    },
+ 
+    "production": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
+        "host": "127.0.0.1",
+ 
+        "dialect": "sqlite",
+
+        "storage": "../db-server/metro" 
+ 
+    }
+ 
+}

@@ -1,6 +1,6 @@
 var _ = require('lodash'),
 	async = require('async'),
-	bcrypt = require('bcrypt'),
+	bcrypt = require('bcrypt-nodejs'),
 	fs = require('fs'),
 	utilities = require('./utilities.js');
 

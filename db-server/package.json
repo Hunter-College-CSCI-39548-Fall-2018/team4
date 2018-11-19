@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "async": "*",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "*",
     "connect-flash": "*",
     "cookie-parser": "*",

@@ -184,243 +184,243 @@ module.exports = function(passport, db, utilities) {
 
 	));
 
-	/*****************************************************************
-	***
-	*** Facebook Login
-	***
-	******************************************************************/
+	// /*****************************************************************
+	// ***
+	// *** Facebook Login
+	// ***
+	// ******************************************************************/
 
-	passport.use(new FacebookStrategy({
-			clientID: passport_config.facebook.clientID,
-			clientSecret: passport_config.facebook.clientSecret,
-			callbackURL: passport_config.facebook.callbackURL,
-			passReqToCallback : true
-		},
-		function(req, accessToken, refreshToken, profile, done) {
+	// passport.use(new FacebookStrategy({
+	// 		clientID: passport_config.facebook.clientID,
+	// 		clientSecret: passport_config.facebook.clientSecret,
+	// 		callbackURL: passport_config.facebook.callbackURL,
+	// 		passReqToCallback : true
+	// 	},
+	// 	function(req, accessToken, refreshToken, profile, done) {
 
-			// First, check if user is logged in already
-			if (!req.user) {
+	// 		// First, check if user is logged in already
+	// 		if (!req.user) {
 
-				/***
-				*
-				* User isn't logged in
-				*
-				***/
+	// 			/***
+	// 			*
+	// 			* User isn't logged in
+	// 			*
+	// 			***/
 
-				// Now see if the user has already logged in with facebook previously
-				db.user.find({
-					where: {
-						'facebook_id': profile.id
-					}
-				}).then(function(user) {
+	// 			// Now see if the user has already logged in with facebook previously
+	// 			db.user.find({
+	// 				where: {
+	// 					'facebook_id': profile.id
+	// 				}
+	// 			}).then(function(user) {
 
-					// If the user's facebook account isn't linked to any account
-		  			if (!user) {
+	// 				// If the user's facebook account isn't linked to any account
+	// 	  			if (!user) {
 
-		  				// Facebook account isn't linked to any user
-						// Set up a new user account for them.
+	// 	  				// Facebook account isn't linked to any user
+	// 					// Set up a new user account for them.
 
-						var date = new Date();
-						var passwords;
-						var userData;
-						var userName = profile.displayName.split(' ');
+	// 					var date = new Date();
+	// 					var passwords;
+	// 					var userData;
+	// 					var userName = profile.displayName.split(' ');
 
-						async.series([
-							function(callback) {
+	// 					async.series([
+	// 						function(callback) {
 
-								utilities.generateRandomPassword(function(result) {
-									passwords = result;
-									callback();
-								});
+	// 							utilities.generateRandomPassword(function(result) {
+	// 								passwords = result;
+	// 								callback();
+	// 							});
 
-							},
-							function(callback) {
+	// 						},
+	// 						function(callback) {
 
-								// Set up the user profile and then create their account
-								userData = {
-									username: 'VH-'+profile.id,
-									password: passwords.hashed_password,
-									facebook_id: profile.id,
-									user_rank: 'user',
-									generated_username: '1'
-								};
+	// 							// Set up the user profile and then create their account
+	// 							userData = {
+	// 								username: 'VH-'+profile.id,
+	// 								password: passwords.hashed_password,
+	// 								facebook_id: profile.id,
+	// 								user_rank: 'user',
+	// 								generated_username: '1'
+	// 							};
 
-								callback();
+	// 							callback();
 
-							}
-						], function(err) {
-							if (err) { console.log(err); }
+	// 						}
+	// 					], function(err) {
+	// 						if (err) { console.log(err); }
 
-							db.user
-								.create(userData)
-								.then(function(newUser) {
-									var newUserID = newUser.dataValues.id;
+	// 						db.user
+	// 							.create(userData)
+	// 							.then(function(newUser) {
+	// 								var newUserID = newUser.dataValues.id;
 
-									// Once the new account is created, find their user record and log them in.
-									db.user
-										.find(newUserID)
-										.then(function(user) {
-											return done(null, user);
-										});
+	// 								// Once the new account is created, find their user record and log them in.
+	// 								db.user
+	// 									.find(newUserID)
+	// 									.then(function(user) {
+	// 										return done(null, user);
+	// 									});
 
-								});
+	// 							});
 
-						});
-
-
-
-		  			} else {
-
-		  				// User's facebook account is already linked to an account.
-						// Log them into their account
-						return done(null, user);
-
-		  			}
-
-		  		});
-
-			} else {
-
-				/***
-				*
-				* User is already logged in. Link facebook to their account.
-				*
-				***/
-
-				db.user.find({
-					where: ["id = ?", req.user.userId]
-				}).then(function(User) {
-
-					// Username isn't already in use
-					User.updateAttributes({
-						'facebook_id': profile.id
-					})
-					.then(function() {
-						return done(null, User);
-					});
-				});
-
-			}
-
-
-		}
-	));
-
-	/*****************************************************************
-	***
-	*** Twitter Login
-	***
-	******************************************************************/
-
-	passport.use(new TwitterStrategy({
-			consumerKey: passport_config.twitter.consumerKey,
-			consumerSecret: passport_config.twitter.consumerSecret,
-			callbackURL: passport_config.twitter.callbackURL,
-			passReqToCallback : true
-		},
-		function(req, token, tokenSecret, profile, done) {
-
-			// First, check if user is logged in already
-			if (!req.user) {
-
-				/***
-				*
-				* User isn't logged in
-				*
-				***/
-
-				// Now see if the user has already logged in with twitter previously
-				db.user.find({ where: {'twitter_id': profile.id }}).then(function(user) {
-
-					// If the user's twitter account isn't linked to any account
-		  			if (!user) {
-
-		  				// Twitter account isn't linked to any user
-						// Set up a new user account for them.
-
-						var date = new Date();
-						var passwords;
-						var userData;
-						var userName = profile.displayName.split(' ');
-
-						async.series([
-							function(callback) {
-
-								utilities.generateRandomPassword(function(result) {
-									passwords = result;
-									callback();
-								});
-
-							},
-							function(callback) {
-
-								// Set up the user profile and then create their account
-								userData = {
-									username: 'VH-'+profile.id,
-									password: passwords.hashed_password,
-									twitter_id: profile.id,
-									user_rank: 'user',
-									generated_username: '1'
-								};
-
-								callback();
-
-							}
-						], function(err) {
-							if (err) { console.log(err); }
-
-							db.user
-								.create(userData)
-								.then(function(newUser) {
-									var newUserID = newUser.dataValues.id;
-
-									// Once the new account is created, find their user record and log them in.
-									db.user
-										.find(newUserID)
-										.then(function(user) {
-											return done(null, user);
-										});
-
-								});
-
-						});
+	// 					});
 
 
 
-		  			} else {
+	// 	  			} else {
 
-		  				// User's twitter account is already linked to an account.
-						// Log them into their account
-						return done(null, user);
+	// 	  				// User's facebook account is already linked to an account.
+	// 					// Log them into their account
+	// 					return done(null, user);
 
-		  			}
+	// 	  			}
 
-		  		});
+	// 	  		});
 
-			} else {
+	// 		} else {
 
-				/***
-				*
-				* User is already logged in. Link twitter to their account.
-				*
-				***/
+	// 			/***
+	// 			*
+	// 			* User is already logged in. Link facebook to their account.
+	// 			*
+	// 			***/
 
-				db.user.find({
-					where: ["id = ?", req.user.userId]
-				}).then(function(User) {
+	// 			db.user.find({
+	// 				where: ["id = ?", req.user.userId]
+	// 			}).then(function(User) {
 
-					// Username isn't already in use
-					User.updateAttributes({
-						'twitter_id': profile.id
-					})
-					.then(function() {
-						return done(null, User);
-					});
-				});
+	// 				// Username isn't already in use
+	// 				User.updateAttributes({
+	// 					'facebook_id': profile.id
+	// 				})
+	// 				.then(function() {
+	// 					return done(null, User);
+	// 				});
+	// 			});
 
-			}
+	// 		}
 
-		}
-	));
 
-}
+	// 	}
+	// ));
+
+	// /*****************************************************************
+	// ***
+	// *** Twitter Login
+	// ***
+	// ******************************************************************/
+
+	// passport.use(new TwitterStrategy({
+	// 		consumerKey: passport_config.twitter.consumerKey,
+	// 		consumerSecret: passport_config.twitter.consumerSecret,
+	// 		callbackURL: passport_config.twitter.callbackURL,
+	// 		passReqToCallback : true
+	// 	},
+	// 	function(req, token, tokenSecret, profile, done) {
+
+	// 		// First, check if user is logged in already
+	// 		if (!req.user) {
+
+	// 			/***
+	// 			*
+	// 			* User isn't logged in
+	// 			*
+	// 			***/
+
+	// 			// Now see if the user has already logged in with twitter previously
+	// 			db.user.find({ where: {'twitter_id': profile.id }}).then(function(user) {
+
+	// 				// If the user's twitter account isn't linked to any account
+	// 	  			if (!user) {
+
+	// 	  				// Twitter account isn't linked to any user
+	// 					// Set up a new user account for them.
+
+	// 					var date = new Date();
+	// 					var passwords;
+	// 					var userData;
+	// 					var userName = profile.displayName.split(' ');
+
+	// 					async.series([
+	// 						function(callback) {
+
+	// 							utilities.generateRandomPassword(function(result) {
+	// 								passwords = result;
+	// 								callback();
+	// 							});
+
+	// 						},
+	// 						function(callback) {
+
+	// 							// Set up the user profile and then create their account
+	// 							userData = {
+	// 								username: 'VH-'+profile.id,
+	// 								password: passwords.hashed_password,
+	// 								twitter_id: profile.id,
+	// 								user_rank: 'user',
+	// 								generated_username: '1'
+	// 							};
+
+	// 							callback();
+
+	// 						}
+	// 					], function(err) {
+	// 						if (err) { console.log(err); }
+
+	// 						db.user
+	// 							.create(userData)
+	// 							.then(function(newUser) {
+	// 								var newUserID = newUser.dataValues.id;
+
+	// 								// Once the new account is created, find their user record and log them in.
+	// 								db.user
+	// 									.find(newUserID)
+	// 									.then(function(user) {
+	// 										return done(null, user);
+	// 									});
+
+	// 							});
+
+	// 					});
+
+
+
+	// 	  			} else {
+
+	// 	  				// User's twitter account is already linked to an account.
+	// 					// Log them into their account
+	// 					return done(null, user);
+
+	// 	  			}
+
+	// 	  		});
+
+	// 		} else {
+
+	// 			/***
+	// 			*
+	// 			* User is already logged in. Link twitter to their account.
+	// 			*
+	// 			***/
+
+	// 			db.user.find({
+	// 				where: ["id = ?", req.user.userId]
+	// 			}).then(function(User) {
+
+	// 				// Username isn't already in use
+	// 				User.updateAttributes({
+	// 					'twitter_id': profile.id
+	// 				})
+	// 				.then(function() {
+	// 					return done(null, User);
+	// 				});
+	// 			});
+
+	// 		}
+
+	// 	}
+	// ));
+
+;}

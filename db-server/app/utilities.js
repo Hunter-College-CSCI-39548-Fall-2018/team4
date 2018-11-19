@@ -4,7 +4,7 @@
 *
 ***/
 
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 exports.generateRandomString = function(stringLength, callback) {
 	var text = "";

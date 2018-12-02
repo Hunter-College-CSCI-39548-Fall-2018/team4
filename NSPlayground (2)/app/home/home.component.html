@@ -1,0 +1,38 @@
+<ActionBar title="Home" class="action-bar">
+</ActionBar>
+
+<GridLayout rows="*" height="1500px">
+    <RadSideDrawer>
+        <StackLayout tkDrawerContent backgroundColor="gray">
+            <StackLayout height="56" style="text-align: center; vertical-align: center;">
+                <Label text="Navigation Menu"></Label>
+            </StackLayout>
+            <StackLayout>
+                <Label text="Primary" padding="10" backgroundColor="lightgray"></Label>
+                <Label text="Social" padding="10"></Label>
+                <Label text="Promotions" padding="10"></Label>
+                <Label text="Labels" padding="10" backgroundColor="lightgray"></Label>
+                <Label text="Important" padding="10"></Label>
+                <Label text="Starred" padding="10"></Label>
+                <Label text="Sent Mail" padding="10"></Label>
+                <Label text="Drafts" padding="10"></Label>
+            </StackLayout>
+            <Label text="Close" color="lightgray" padding="10" style="horizontal-align: center"
+                (tap)="onCloseDrawerTap()"></Label>
+        </StackLayout>
+        <StackLayout tkMainContent>
+            <ListView [items]= "metrocard" (itemTap)= "onMetrocardItemTap($event)" separatorColor="transparent">
+                <ng-template let-item="item">
+                        <GridLayout rows="*, auto" columns="auto, *, auto">
+                                <Image class="site-template-image thumb-with-background" stretch="aspectFill" [src]="item && item.getThumbnailUrl ? item.getThumbnailUrl() : null"></Image>
+                
+                                <StackLayout col="1" verticalAlignment="center">
+                                    <Label class="site-template-title" [text]="item ? item.metrocard_type : 'no data'"></Label>
+                                    <Label class="site-template-description" [text]="item ? item.total_amount : 'no data'"></Label>
+                                </StackLayout>
+                </ng-template>
+
+            </ListView>
+        </StackLayout>
+    </RadSideDrawer>
+</GridLayout>

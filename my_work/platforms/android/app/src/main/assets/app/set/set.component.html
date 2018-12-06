@@ -1,0 +1,29 @@
+<FlexboxLayout class="page">
+<ScrollView sdkExampleTitle sdkToggleNavButton>
+	<StackLayout class="form">
+		<StackLayout class="input-field">
+			<ListPicker [items]="metrocards" color="white" selectedIndex="0" [(ngModel)] = " metrocard_type" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
+        </StackLayout>
+
+        <StackLayout class="input-field">
+			<Label class="label" color="orange" text="When Does it Expire?" textWrap="true"></Label>
+            <TextField #metrocardTextField hint="Enter Expiration" color="white" keyboardType="datetime" [(ngModel)] = "expiration"> </TextField>
+        </StackLayout>
+
+        <StackLayout class="input-field">
+			<Label class="label" color="orange" text="How much is in it?" textWrap="true"></Label>
+            <TextField #metrocardTextField hint="Total Amount"  maxlength = "10"  color="white" keyboardType="number" [(ngModel)] = "total_amount"> </TextField>
+        </StackLayout>
+
+        <StackLayout class="input-field">
+			<Label class="label" color="orange" text="When did you buy it?" textWrap="true"></Label>
+            <TextField #metrocardTextField hint="MM/DD/YYYY" maxlength = "10" color="white" keyboardType="datetime" [(ngModel)] = "dateOfPurchase"> </TextField>
+        </StackLayout>
+
+        <StackLayout class="input-field">
+			<Button class="btn btn-primary btn-active" id="button" text="Add Metrocard" (tap)="addcard()"></Button>
+        </StackLayout>
+
+	</StackLayout>
+</ScrollView>
+</FlexboxLayout>

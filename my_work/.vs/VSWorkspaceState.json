@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\database",
+    "\\app\\email-validator",
+    "\\app\\login",
+    "\\app\\nativescript-sqlite",
+    "\\app\\schedule",
+    "\\app\\set",
+    "\\app\\settings",
+    "\\app\\shared",
+    "\\app\\update"
+  ],
+  "SelectedNode": "\\app\\set\\set.component.html",
+  "PreviewInSolutionExplorer": false
+}

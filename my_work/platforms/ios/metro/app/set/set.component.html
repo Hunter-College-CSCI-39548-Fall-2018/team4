@@ -1,0 +1,31 @@
+<ActionBar title="Add Metrocard" class="action-bar">
+</ActionBar>
+
+<ScrollView sdkExampleTitle sdkToggleNavButton>
+	<StackLayout class="form">
+		<StackLayout class="input-field">
+			<ListPicker [items]="metrocards" selectedIndex="0" [(ngModel)] = " metrocard_type" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
+        </StackLayout>
+        
+        <StackLayout class="input-field">
+			<Label class="label" text="When Does it Expire?" textWrap="true"></Label>
+            <TextField #metrocardTextField hint="Enter Expiration" keyboardType="datetime" [(ngModel)] = "expiration"> </TextField>
+        </StackLayout>
+        
+        <StackLayout class="input-field">
+			<Label class="label" text="How much is in it?" textWrap="true"></Label>
+            <TextField #metrocardTextField hint="Total Amount" keyboardType="number" [(ngModel)] = "total_amount"> </TextField>
+        </StackLayout>
+        
+        <StackLayout class="input-field">
+			<Label class="label" text="When did you buy it?" textWrap="true"></Label>
+            <TextField #metrocardTextField hint="Date of Purchase" keyboardType="datetime" [(ngModel)] = "dateOfPurchase"> </TextField>
+        </StackLayout>
+
+        <StackLayout class="input-field">
+			<Button class="btn btn-primary btn-active" id="button" text="Add Metrocard" (tap)="addcard()"></Button>
+        </StackLayout>
+
+	</StackLayout>
+</ScrollView>
+

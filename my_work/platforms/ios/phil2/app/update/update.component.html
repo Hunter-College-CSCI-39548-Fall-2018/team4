@@ -1,0 +1,23 @@
+<FlexboxLayout class="page">
+<StackLayout tkMainContent>
+    <StackLayout>
+       <StackLayout class="information">
+           <ScrollView >
+                  <ListView [items]="infoMetro" separatorColor="transparent" [width]="layoutWidth" [height]="layoutHeight" (itemTap)="onItemTap($event)" (longPress)="onLongPress($event)">
+                          <ng-template let-item="item">
+                              <GridLayout rows="*, auto" columns="auto, *, auto">
+                                  <StackLayout col="1" verticalAlignment="center">
+                                      <Label [text]= "'MetroCard Type: ' + item.type" ></Label>
+                                      <Label [text]="'Amount: ' + item.amount"></Label>
+                                      <Label [text]="'Date: ' + item.date"></Label>
+                                      <Label [text]="'Expire: ' + item.expiration"></Label>
+                                  </StackLayout>
+                                  <StackLayout margin="0,16,0,42" row="1" colSpan="2" backgroundColor="lightGray" height="1"></StackLayout>
+                              </GridLayout>
+                          </ng-template>
+                      </ListView>
+           </ScrollView>
+       </StackLayout>
+   </StackLayout>
+</StackLayout>
+</FlexboxLayout>

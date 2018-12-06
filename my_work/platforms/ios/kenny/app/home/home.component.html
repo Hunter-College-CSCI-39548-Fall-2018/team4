@@ -1,0 +1,50 @@
+<FlexboxLayout class="page">
+<ActionBar title="Home" class="action-bar"> </ActionBar>
+<GridLayout>
+    <RadSideDrawer>
+        <StackLayout tkDrawerContent backgroundColor="white">
+            <StackLayout height="56" style="text-align: center; vertical-align: center;">
+                <Label color ="orange" text="Welcome"></Label>
+            </StackLayout>
+            <StackLayout>
+                <Button text="Add Metrocard"
+                [nsRouterLink]="['/set']" padding="10" ></Button>
+                <Button text="Settings"
+                [nsRouterLink]="['/settings']" padding="10" ></Button>
+                <Button text="Log out"
+                [nsRouterLink]="['/logout']" padding="10" ></Button>
+            </StackLayout>
+
+        </StackLayout>
+        <StackLayout tkMainContent>
+          <StackLayout>
+             <Image src="~/images/logo.png" class="metrocard"></Image>
+             <StackLayout class="information">
+                 <ScrollView >
+                        <ListView [items]="infoMetro" separatorColor="transparent" [width]="layoutWidth" [height]="layoutHeight" (itemTap)="onItemTap($event)" (longPress)="onLongPress($event)">
+                                <ng-template let-item="item">
+                                    <GridLayout rows="*, auto" columns="auto, *, auto">
+                                        <StackLayout col="1" verticalAlignment="center">
+                                            <Label [text]= "'MetroCard Type: ' + item.type" ></Label>
+                                            <Label [text]="'Amount: ' + item.amount"></Label>
+                                            <Label [text]="'Date: ' + item.date"></Label>
+                                            <Label [text]="'Expire: ' + item.expiration"></Label>
+                                        </StackLayout>
+                                        <StackLayout margin="0,16,0,42" row="1" colSpan="2" backgroundColor="lightGray" height="1"></StackLayout>
+                                    </GridLayout>
+                                </ng-template>
+
+                            </ListView>
+                 </ScrollView>
+             </StackLayout>
+             <StackLayout class="input-field">
+                <Button class="btn btn-primary btn-active" id="button" text="Update Metrocard" (tap)="update()"></Button>
+                <Button class="btn btn-primary btn-active" id="button" text="Delete Metrocard" [nsRouterLink]="['/delete']"></Button>
+             </StackLayout>
+
+         </StackLayout>
+        </StackLayout>
+    </RadSideDrawer>
+
+</GridLayout>
+</FlexboxLayout>

@@ -1,0 +1,7 @@
+@import "nativescript-theme-core/css/core.light.css";
+
+.page {
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, #00c6fb 0%, #005bea 100%);
+}

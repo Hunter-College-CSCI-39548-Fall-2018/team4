@@ -1,0 +1,34 @@
+<GridLayout>
+    <RadSideDrawer>
+        <StackLayout tkDrawerContent backgroundColor="black">
+            <StackLayout height="56" style="text-align: center; vertical-align: center;">
+                <Label text="Welcome"></Label>
+            </StackLayout>
+            <StackLayout>
+                <Button text="Set Schedule"
+                [nsRouterLink]="['/set']" padding="10" backgroundColor="white"></Button>
+                <Button text="Settings"
+                [nsRouterLink]="['/settings']" padding="10"backgroundColor="white"></Button>
+                <Button text="Log out"
+                [nsRouterLink]="['/logout']" padding="10"backgroundColor="white"></Button>
+            </StackLayout>
+            <Label text="Close" color="lightgray" padding="10" style="horizontal-align: center"
+                (tap)="onCloseDrawerTap()"></Label>
+        </StackLayout>
+        <StackLayout tkMainContent>
+          <StackLayout>
+             <Image src="~/images/logo.png" class="metrocard"></Image>
+             <StackLayout class="information">
+                 <Label [text]="metrocard_id" textWrap="true"></Label>
+                 <Label [text]="expiration" textWrap="true"></Label>
+                 <Label [text]="card_type" textWrap="true"></Label>
+                 <Label [text]="balance" textWrap="true"></Label>
+             </StackLayout>
+             <StackLayout class="float">
+                 <Button id="update" class="inline" text="Update" (tap)="onButtonTap()" textWrap="true"></Button>
+                 <Button id="delete" class="inline" text="Delete" (tap)="onButtonTap()" textWrap="true"></Button>
+             </StackLayout>
+         </StackLayout>
+        </StackLayout>
+    </RadSideDrawer>
+</GridLayout>

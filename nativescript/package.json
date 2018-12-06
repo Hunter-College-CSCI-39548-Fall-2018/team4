@@ -26,6 +26,8 @@
         "@angular/platform-browser-dynamic": "6.1.10",
         "@angular/router": "6.1.10",
         "@progress-nativechat/nativescript-nativechat": "2.0.3",
+        "install": "^0.12.2",
+        "kinvey-angular2-sdk": "^3.12.3",
         "kinvey-nativescript-sdk": "3.11.6",
         "nativescript-accelerometer": "2.0.1",
         "nativescript-angular": "6.2.0",

@@ -1,7 +1,7 @@
 export class Config {
   static apiUrl = "https://baas.kinvey.com/";
-  static appKey = "kid_HyHoT_REf";
-  static authHeader = "Basic a2lkX0h5SG9UX1JFZjo1MTkxMDJlZWFhMzQ0MzMyODFjN2MyODM3MGQ5OTIzMQ";
+  static appKey = "kid_rk-cVokRX";
+  static authHeader = "Basic a2lkX3JrLWNWb2tSWDozN2NkYThlNDYxZmE0NTkxOTE5MGM2YWYyYjc3ZGVmNA==";
   static token = "";
 }
 

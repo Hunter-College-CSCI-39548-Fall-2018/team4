@@ -1,15 +1,15 @@
 # team4
 
-##Pre requisite in order to run the actual app
+## Pre requisite in order to run the actual app
 https://docs.nativescript.org/start/quick-setup
 
-##How to install
+## How to install
 - Go on working directory
 - run "tns preview"
 - scan qr code
 
 
-##Dependencies 
+## Dependencies 
  -Node.js
  -Nativescript CLI
  
